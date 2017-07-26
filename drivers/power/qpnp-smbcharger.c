@@ -2297,7 +2297,7 @@ static void smbchg_parallel_usb_enable(struct smbchg_chip *chip,
 				(chip->vfloat_mv + 50) * 1000);
 	}
 	power_supply_set_voltage_limit(chip->usb_psy,
-			(chip->vfloat_mv + 50) * 1000);
+				(chip->vfloat_mv + 50) * 1000);
 	/* Set USB ICL */
 	target_icl_ma = get_effective_result_locked(chip->usb_icl_votable);
 	if (target_icl_ma < 0) {
@@ -3370,11 +3370,20 @@ static int smbchg_float_voltage_set(struct smbchg_chip *chip, int vfloat_mv)
 
 	if (rc)
 		dev_err(chip->dev, "Couldn't set float voltage rc = %d\n", rc);
+<<<<<<< HEAD
 	else {
 		chip->vfloat_mv = vfloat_mv;
 		power_supply_set_voltage_limit(chip->usb_psy,
 				chip->vfloat_mv * 1000);
 	}
+=======
+	else
+	{
+		chip->vfloat_mv = vfloat_mv;
+		power_supply_set_voltage_limit(chip->usb_psy,
+ 				chip->vfloat_mv * 1000);
+ 	}
+>>>>>>> 3159e25d98e7... qpnp-smbcharger: Publish charger voltage to the usb psy
 
 	power_supply_set_voltage_limit(chip->usb_psy,
 				(chip->vfloat_mv * 1000));
