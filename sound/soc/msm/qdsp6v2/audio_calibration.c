@@ -403,6 +403,8 @@ static long audio_cal_shared_ioctl(struct file *file, unsigned int cmd,
 {
 	int				ret = 0;
 	int32_t				size;
+	int g_ZL;
+	int g_ZR;
 	struct audio_cal_basic		*data = NULL;
 	struct audio_codec_reg *codec_reg = NULL;
 	struct headset_imp_val *imp_val = NULL;
