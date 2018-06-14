@@ -44,7 +44,7 @@
 #define DEFAULT_MIN_GPU_LOAD_THRESHOLD  (65)
 #endif
 
-#define HOTPLUG_ENABLED              (0)
+#define HOTPLUG_ENABLED              (1)
 #define DEFAULT_HOTPLUG_STYLE         HOTPLUG_SCHED
 #define DEFAULT_SCHED_MODE            BALANCED
 
