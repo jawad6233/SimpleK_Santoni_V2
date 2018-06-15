@@ -531,27 +531,12 @@ extern struct cpufreq_governor cpufreq_gov_conservative;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_INTERACTIVE)
 extern struct cpufreq_governor cpufreq_gov_interactive;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_interactive)
-#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_NIGHTMARE)
-extern struct cpufreq_governor cpufreq_gov_nightmare;
-#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_nightmare)
-#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_DARKNESS)
-extern struct cpufreq_governor cpufreq_gov_darkness;
-#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_darkness)
-#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ALUCARD)
-extern struct cpufreq_governor cpufreq_gov_alucard;
-#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_alucard)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SCHED)
 extern struct cpufreq_governor cpufreq_gov_sched;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_sched)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SCHEDUTIL)
 extern struct cpufreq_governor cpufreq_gov_schedutil;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_schedutil)
-#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ALUCARDSCHED)
-extern struct cpufreq_governor cpufreq_gov_alucardsched;
-#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_alucardsched)
-#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_DARKNESSSCHED)
-extern struct cpufreq_governor cpufreq_gov_darknesssched;
-#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_darknesssched)
 #endif
 
 static inline void cpufreq_policy_apply_limits(struct cpufreq_policy *policy)
