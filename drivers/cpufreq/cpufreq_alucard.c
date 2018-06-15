@@ -62,8 +62,8 @@ static cpumask_t speedchange_cpumask;
 static spinlock_t speedchange_cpumask_lock;
 static struct mutex gov_lock;
 
-#define DEFAULT_TIMER_RATE (60 * USEC_PER_MSEC)
-#define DEFAULT_TIMER_RATE_SUSP ((unsigned long)(120 * USEC_PER_MSEC))
+#define DEFAULT_TIMER_RATE (20 * USEC_PER_MSEC)
+#define DEFAULT_TIMER_RATE_SUSP ((unsigned long)(50 * USEC_PER_MSEC))
 
 #define FREQ_RESPONSIVENESS		 768000
 #define FREQ_RESPONSIVENESS_MAX		1094400
@@ -90,7 +90,7 @@ struct cpufreq_alucard_tunables {
 	 * Max additional time to wait in idle, beyond timer_rate, at speeds
 	 * above minimum before wakeup to reduce speed, or -1 if unnecessary.
 	 */
-#define DEFAULT_TIMER_SLACK (2 * DEFAULT_TIMER_RATE)
+#define DEFAULT_TIMER_SLACK (4 * DEFAULT_TIMER_RATE)
 	int timer_slack_val;
 	bool io_is_busy;
 	/*
@@ -253,13 +253,13 @@ static bool update_load(int cpu)
 		ppol->policy->governor_data;
 	u64 now;
 	u64 now_idle;
-	u64 delta_idle;
-	u64 delta_time;
+	unsigned int delta_idle;
+	unsigned int delta_time;
 	bool ignore = false;
 
 	now_idle = get_cpu_idle_time(cpu, &now, tunables->io_is_busy);
-	delta_idle = (now_idle - pcpu->time_in_idle);
-	delta_time = (now - pcpu->time_in_idle_timestamp);
+	delta_idle = (unsigned int)(now_idle - pcpu->time_in_idle);
+	delta_time = (unsigned int)(now - pcpu->time_in_idle_timestamp);
 
 	WARN_ON_ONCE(!delta_time);
 
