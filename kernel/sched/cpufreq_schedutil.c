@@ -31,9 +31,9 @@ unsigned long boosted_cpu_util(int cpu);
 
 struct sugov_tunables {
 	struct gov_attr_set attr_set;
-	unsigned int up_rate_limit_us;
-	unsigned int down_rate_limit_us;
-	bool iowait_boost_enable;
+	unsigned int up_rate_limit_us = 250;
+	unsigned int down_rate_limit_us = 20000;
+	bool iowait_boost_enable = 0;
 };
 
 struct sugov_policy {
