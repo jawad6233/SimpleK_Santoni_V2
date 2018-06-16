@@ -22,7 +22,7 @@
 	interrupt-parent = <&intc>;
 
 	chosen {
-		bootargs = "sched_enable_hmp=1";
+		bootargs = "boot_cpus=0,1,2,3,4,5,6,7 sched_enable_hmp=1";
 	};
 
 	firmware: firmware {
@@ -473,12 +473,12 @@
 		qcom,bcl-hotplug-list = <&CPU2 &CPU3>;
 		qcom,bcl-soc-hotplug-list = <&CPU0 &CPU1 &CPU2 &CPU3>;
 		qcom,ibat-monitor {
-			qcom,low-threshold-uamp = <3400000>;
-			qcom,high-threshold-uamp = <4200000>;
-			qcom,mitigation-freq-khz = <998400>;
-			qcom,vph-high-threshold-uv = <3500000>;
-			qcom,vph-low-threshold-uv = <3200000>;
-			qcom,soc-low-threshold = <10>;
+			qcom,low-threshold-uamp = <1200000>;
+			qcom,high-threshold-uamp = <1650000>;
+			qcom,mitigation-freq-khz = <1094400>;
+			qcom,vph-high-threshold-uv = <3700000>;
+			qcom,vph-low-threshold-uv = <3500000>;
+			qcom,soc-low-threshold = <5>;
 			qcom,thermal-handle = <&msm_thermal_freq>;
 		};
 	};
@@ -1151,6 +1151,7 @@
 		qcom,boost-sysclk-with-streaming;
 		qcom,axi-prefetch-enable;
 		qcom,enable-sdp-typec-current-limit;
+		qcom,hsusb-otg-power-budget = <2000>;
 		qcom,hsusb-otg-delay-lpm;
 
 		qcom,msm-bus,name = "usb2";
@@ -1529,7 +1530,7 @@
 		qcom,use-sw-ahash-algo;
 		qcom,use-sw-hmac-algo;
 		qcom,use-sw-aead-algo;
-		qcom,ce-opp-freq = <100000000>;
+		qcom,ce-opp-freq = <160000000>;
 	};
 
 	qcom_cedev: qcedev@720000 {
@@ -1554,7 +1555,7 @@
 			 <&clock_gcc clk_gcc_crypto_axi_clk>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <100000000>;
+		qcom,ce-opp-freq = <160000000>;
 	};
 
 	qcom_seecom: qseecom@84A00000 {
@@ -1582,7 +1583,7 @@
 			 <&clock_gcc clk_gcc_crypto_axi_clk>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <100000000>;
+		qcom,ce-opp-freq = <160000000>;
 	};
 
 	qcom,ipc_router {
@@ -1981,7 +1982,7 @@
 			 <&clock_gcc clk_gcc_crypto_axi_clk>;
 		clock-names = "core_clk_src", "core_clk",
 				"iface_clk", "bus_clk";
-		qcom,ce-opp-freq = <100000000>;
+		qcom,ce-opp-freq = <160000000>;
 	};
 
 	qcom,msm-ssc-sensors {
