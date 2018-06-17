@@ -60,7 +60,7 @@ static DEFINE_SPINLOCK(suspend_lock);
 #define TAG "msm_adreno_tz: "
 
 #if 1
-static unsigned int adrenoboost = 3; //Sets the level boosting
+static unsigned int adrenoboost = 0; //Disable adrenoboost by default
 #endif
 
 static u64 suspend_time;
