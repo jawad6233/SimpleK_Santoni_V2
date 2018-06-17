@@ -24,12 +24,6 @@
 
 	/* VDD_CX supply */
 	rpm-regulator-smpa2 {
-		qcom,gx-retention; //Enable regulator retention level for IDLE modes
-		qcom,soft-start-enable = <0x1>; //enable soft start to start without current peaks that can damage device
-		qcom,hpm-enable = <0x1>; //enable high power mode
-		qcom,boost-current-limit = <14>; //3200mA maximum
-		qcom,ocp-enable = <1>; //enables over current protection
-		qcom,init-quiet-mode = <2>; //Regulator EMI noise reduction
 		status = "okay";
 		pm8937_s2_level: regulator-s2-level {
 			compatible = "qcom,rpm-smd-regulator";
@@ -81,7 +75,6 @@
 		pm8937_s4: regulator-s4 {
 			regulator-min-microvolt = <2050000>;
 			regulator-max-microvolt = <2050000>;
-			qcom,init-quiet-mode = <2>; //Regulator EMI noise reduction
 			qcom,init-voltage = <2050000>;
 			status = "okay";
 		};
@@ -305,7 +298,7 @@
 			compatible = "qcom,spm-regulator";
 			reg = <0x2000 0x100>;
 			qcom,mode = "pwm";
-			qcom,init-quiet-mode = <2>; //Regulator EMI noise reduction
+		        qcom,init-quiet-mode = <2>; //Regulator EMI noise reduction
 			regulator-name = "pm8937_s5";
 			regulator-min-microvolt = <1050000>;
 			regulator-max-microvolt = <1350000>;
@@ -403,7 +396,7 @@
 					<70 54 7 0>;
 		qcom,cpr-fuse-quot-offset-scale = <5 5 5>;
 		qcom,cpr-init-voltage-step = <10000>;
-		qcom,cpr-corner-map = <1 2 3 3 3 3 3>;
+		qcom,cpr-corner-map = <1 1 1 2 2 3 3>;
 		qcom,cpr-corner-frequency-map =
 				<1 960000000>,
 				<2 1094400000>,
